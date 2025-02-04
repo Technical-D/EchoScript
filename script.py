@@ -24,5 +24,4 @@ def scan_media_files(folder_path):
 
 audio_files, video_files = scan_media_files('media')
 print("File extracted sucessfully!")
-print(audio_files)
 process_files(audio_files=audio_files, video_files=video_files, output_folder="transcriptions")

@@ -29,7 +29,6 @@ def process_files(audio_files, video_files, output_folder="transcriptions"):
 
     # looping through audio file
     for file_name, file_path in audio_files.items():
-        print(file_path)
         text = transcribe_audio(file_path, model)
         save_transcription(file_name, text, output_folder)
 
@@ -41,5 +40,6 @@ def process_files(audio_files, video_files, output_folder="transcriptions"):
         if converted_audio:
             text = transcribe_audio(converted_audio, model)
             save_transcription(file_name, text, output_folder)
+            os.remove(converted_audio) # Removing the converted audio file
 
     print("Transcription process completed!")
