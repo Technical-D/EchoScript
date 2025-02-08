@@ -10,6 +10,7 @@ def scan_media_files(folder_path):
     audio_files = {}
     video_files = {}
 
+    # Looping through the folder 
     for root, _, files in os.walk(folder_path):
         for file in files:
             file_name = os.path.splitext(file)[0].lower()
@@ -22,6 +23,9 @@ def scan_media_files(folder_path):
                 video_files[file_name] = file_path
     return audio_files, video_files
 
+# Storing audion file location in dict
 audio_files, video_files = scan_media_files('media')
 print("File extracted sucessfully!")
+
+# Processing the audio and video file to get transcriptions
 process_files(audio_files=audio_files, video_files=video_files, output_folder="transcriptions")

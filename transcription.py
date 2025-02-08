@@ -9,14 +9,16 @@ def convert_video_to_audio(video_path, output_audio_path):
         return output_audio_path
     except Exception as e:
         print(f"Error converting {video_path} to audio: {e}")
-        return None
+        return None 
 
 def transcribe_audio(file_path, model):
+    # Transcribing the audio file
     print(f"Transcribing: {file_path} ...")
     result = model.transcribe(file_path)
     return result["text"]
 
 def save_transcription(file_name, text, output_folder):
+    # Saving transcription in output folder
     output_file = os.path.join(output_folder, f"{file_name}.txt")
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(text)
